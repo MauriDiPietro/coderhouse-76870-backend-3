@@ -1,0 +1,20 @@
+components:
+  schema:
+    Products:
+      ProductResponse:
+        type: object
+        properties:
+          status:
+            type: number
+            description: Código de estado de la respuesta
+          data:
+            $ref: '#/components/schema/Products/Product'
+      Product:
+        type: object
+        properties:
+          _id:
+            type: string
+            description: Id del producto 
+          name:
+            type: string
+            description: Nombre del producto
