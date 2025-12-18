@@ -9,6 +9,15 @@ components:
             description: Código de estado de la respuesta
           data:
             $ref: '#/components/schema/Products/Product'
+        example:
+          status: 201
+          data:
+            _id: 64964646sdfsdfsdf654s64
+            name: Café
+            price: 50000
+            stock: 150
+            description: Este es un café de alta calidad.
+            active: true
       Product:
         type: object
         properties:
@@ -75,3 +84,4 @@ components:
         example:
           message: Error creating product
           status: 400
+      
