@@ -1,5 +1,4 @@
 import { Document, Model } from "mongoose";
-import { ProductType } from "../types/product.type";
 
 export default class MongoRepository<T extends Document> {
   protected model: Model<T>;
@@ -10,6 +9,8 @@ export default class MongoRepository<T extends Document> {
 
   async getAll() {
     try {
+      const response = await this.model.find();
+      return response;
     } catch (error) {
       throw error;
     }
@@ -17,27 +18,37 @@ export default class MongoRepository<T extends Document> {
 
   async getById(id: string) {
     try {
+      const response = await this.model.findById(id);
+      return response;
     } catch (error) {
       throw error;
     }
   }
 
-  async create(body: ProductType) {
+  async create(obj: any) {
     try {
+      const response = await this.model.create(obj);
+      return response;
     } catch (error) {
       throw error;
     }
   }
 
-  async update() {
+  async update(id: string, obj: any) {
     try {
+      const response = await this.model.findByIdAndUpdate(id, obj, {
+        new: true,
+      });
+      return response;
     } catch (error) {
       throw error;
     }
   }
 
-  async delete() {
+  async delete(id: string) {
     try {
+      const response = await this.model.findByIdAndDelete(id);
+      return response;
     } catch (error) {
       throw error;
     }

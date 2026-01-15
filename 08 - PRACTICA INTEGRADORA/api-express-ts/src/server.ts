@@ -1,13 +1,20 @@
 import express from "express";
 import config from "./config";
 import { initMongoDB } from "./config/db.connection";
+import { logger } from "./logs/logger";
+import { errorHandler } from "./middlewares/error.handler";
+import apiRouter from "./routes/index";
 
 const app = express();
 
 app.use(express.json());
 
 initMongoDB()
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.log(err));
+  .then(() => logger.info("Connected to MongoDB"))
+  .catch((err) => logger.error(err));
 
-app.listen(config.PORT, () => console.log("Server running on port 8080"));
+app.use("/api", apiRouter);
+
+app.use(errorHandler);
+
+app.listen(config.PORT, () => logger.info("Server running on port 8080"));
