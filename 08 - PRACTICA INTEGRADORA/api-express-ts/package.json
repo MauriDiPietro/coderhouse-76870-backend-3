@@ -1,0 +1,24 @@
+{
+  "name": "api-express-ts",
+  "version": "1.0.0",
+  "main": "./dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node --env-file=.env .",
+    "dev": "ts-node src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/mongoose": "^5.11.96",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.1.3"
+  }
+}
