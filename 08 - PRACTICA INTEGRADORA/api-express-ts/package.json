@@ -13,12 +13,16 @@
   "description": "",
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "@types/joi": "^17.2.2",
+    "@types/log4js": "^0.0.33",
     "@types/mongoose": "^5.11.96",
     "typescript": "^5.9.3"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "joi": "^18.0.2",
+    "log4js": "^6.9.1",
     "mongoose": "^9.1.3"
   }
 }
